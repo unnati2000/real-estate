@@ -34,7 +34,7 @@ app.use(passport.session());
 
 // Connecting to the database
 
-mongoose.connect('mongodb+srv://unnati:unnati@propertydb-plw3z.mongodb.net/', {
+mongoose.connect('mongodb+srv://unnati:unnati@propertydb-plw3z.mongodb.net/propertyDB', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -45,6 +45,7 @@ const userEstateSchema = new mongoose.Schema({
     username: String,
     password: String
 });
+
 userEstateSchema.plugin(passportlocalmongoose);
 const User = new mongoose.model('UserEstate', userEstateSchema);
 
