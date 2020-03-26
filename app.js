@@ -266,12 +266,6 @@ app.get('/find', (req, res, next) => {
     res.render('find.ejs');
 });
 
-
-app.use((req,res,next)=>{
-    res.status(404).render("404.ejs");
-})
-
-
 //################################################### ADMIN LOGIN #####################################################3
 
 app.get('/admin-login', (req, res, next) => {
@@ -294,6 +288,10 @@ app.post('/admin-login', (req, res, next) => {
             });
         }
     })
+})
+
+app.use((req,res,next)=>{
+    res.status(404).render("404.ejs");
 })
 
 //################################################### SERVER ############################################################
