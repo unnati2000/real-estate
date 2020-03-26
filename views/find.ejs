@@ -44,8 +44,17 @@
 </head>
 
 <body>
-    
-   <h1 class="text-center mt-5 mb-3">Found List...</h1>
+
+    <nav>
+        <ul>
+            <li><a href="/project">Project</a></li>
+            <li><a href="/enquire">Enquire</a></li>
+            <li><a href="/">Home</a></li>
+        </ul>
+    </nav>
+
+
+    <h1 class="text-center mt-5 mb-3">Found List...</h1>
 
     <div class="row flat ml-1 container-fluid  justify-content-center">
         <% properties.forEach(function(property) { %>
@@ -58,10 +67,10 @@
                 <h4 class="card-title"><%=property.roomtype %></h4>
                 <p class="card-text"><span style="font-weight: bold; font-size: 20px;">Address:
                     </span><%=property.address %></p>
-                <h3 class="card-text">Price: ₹ <%=property.price %></h3>
+                <h3 class="card-title">Price: ₹ <%=property.price %></h3>
 
                 <div class="row text-center mt-3 mb-3">
-                    <form method="GET" class="col-md-6" action="/single">
+                    <form method="POST" class="col-md-6" action="/single">
                         <button type="submit" name="id" class="btn btn-outline-dark waves-effect">Show info</button>
                     </form>
                     <form method="GET" class="col-md-6" action="/enquire">

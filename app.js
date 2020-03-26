@@ -136,6 +136,10 @@ app.post('/admin', upload, (req, res, next) => {
     res.redirect('/project');
 });
 
+app.get('/house', (req,res,next)=>{
+    res.send('<h1>Sorry, we dont have housing.com for now!</h1>')
+})
+
 // Project route 
 // Listings of properties go here
 
@@ -176,6 +180,27 @@ app.post('/delete', (req, res, next) => {
     })
     res.redirect('/admin-controll');
 })
+
+// Temporary register route
+
+// app.get('/register', (req,res,next)=>{
+//     res.render('register.ejs');
+// })
+
+// app.post('/register', function(req,res){
+
+//     User.register({username: req.body.username}, req.body.password, function(err,user){
+//         if(err)
+//         {
+//             console.log(err);
+//         } else {
+//             passport.authenticate('local')(req,res, function(){
+//                 res.redirect('/admin')
+//             });
+//         }
+//     });
+    
+// });
 
 // Enquire route
 
