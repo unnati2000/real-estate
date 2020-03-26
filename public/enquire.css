@@ -1,0 +1,25 @@
+body{
+    background: linear-gradient(145deg, #757F9A 0%, #D7DDE8 100%);   
+}
+
+label {
+    color: white;
+    font-size: 20px;
+}
+
+h2,h3 {
+    text-align: center;
+    padding-top: 20px;
+    color: black;
+}
+
+form {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 70px;
+    padding: 40px;
+    margin-top: 50px;
+    background: black;
+   
+    
+}

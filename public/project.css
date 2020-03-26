@@ -1,0 +1,30 @@
+body{
+    background-color: #ebf5fc !important;
+}
+
+h1,h2{
+    font-family: 'Ubuntu', sans-serif;  
+}
+
+
+.card{
+    box-shadow:  -8px -8px 20px rgba(225, 225, 225, 1), 8px 8px 20px rgba(0, 0, 0, 0.1) !important;
+    background: #ebf5fc !important;
+    margin: 20px;
+    width: 50%;
+    font-family: 'IBM+Plex', sans-serif !important;
+   
+}
+
+.card:hover{
+    box-shadow: inset -6px -6px 20px rgba(225, 225, 225, 1), inset 6px 6px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+
+.flat img{
+    height: 300px;
+    width: 400px;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

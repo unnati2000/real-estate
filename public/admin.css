@@ -1,0 +1,42 @@
+
+body{
+ background: linear-gradient(145deg, #757F9A 0%, #D7DDE8 100%);   
+}
+
+
+form{
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+    justify-content: center;
+    padding: 30px;
+    margin-bottom: 30px;
+ 
+    background: black;
+
+
+}
+h2,h1{
+    padding-top: 40px;
+    text-align: center;
+}
+
+input{
+    margin: 20px;
+    width: 200px;
+}
+
+h4{
+    
+    color:white;
+ 
+    padding-top: 20px;
+}
+
+.form-control{
+    width: 70px;
+    padding-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
