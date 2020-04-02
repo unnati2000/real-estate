@@ -66,7 +66,7 @@
     <form method="POST" action="/admin" enctype="multipart/form-data">
 
         <h4>Enter roomtype</h4>
-        <select class="form-control" name="roomtype">
+        <select class="form-control"  name="roomtype">
             <option>1 RK</option>
             <option>1 BHK</option>
             <option>2 BHK</option>
@@ -106,21 +106,21 @@
 
 
         <h4>Enter Status</h4>
-        <input class="form-control" type="text" name="status" placeholder="Default input">
+        <input class="form-control" type="text" name="status" required placeholder="Default input">
 
 
         <h4>Enter Location</h4>
-        <input class="form-control" type="text" aria-required="true" name="location" placeholder="Default input">
+        <input class="form-control" type="text" aria-required="true" required name="location" placeholder="Default input">
 
         <h4>Enter Address</h4>
-        <input class="form-control" type="text" name="address" placeholder="Default input">
+        <input class="form-control" type="text" name="address" required placeholder="Default input">
 
         <h4>Enter Price</h4>
-        <input class="form-control" type="text" name="price" placeholder="Default input">
+        <input class="form-control" type="text" name="price" required placeholder="Default input">
 
         <h4 for="exampleFormControlFile1">Enter 4 photos</h4>>
         <br>
-        <input type="file" class="form-control-file" multiple name="propertyImage" id="exampleFormControlFile1">
+        <input type="file" class="form-control-file" required multiple name="propertyImage" id="exampleFormControlFile1">
         
         <br>
         

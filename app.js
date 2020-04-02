@@ -120,7 +120,6 @@ app.get('/admin', (req, res, next) => {
     }
 });
 
-// cloudinary done password Lemme try once
 app.post('/admin', upload, (req, res, next) => {
 
     const property = new Property({
@@ -285,8 +284,6 @@ app.get('/find', (req, res, next) => {
 
 app.get('/edit/:id', (req,res,next)=>{
 
-    // Obviously yeh wala undefined hi dikhayega 
-    // Need to get id from control page and pass it here
     const id = req.param.id;
     Property.find({_id: id}, function(err, properties){
         
@@ -332,7 +329,6 @@ var port = process.env.PORT;
 if (port === undefined) {
     port = 3000;
 }
-
 app.listen(port, function (err) {
     if (err) {
         console.log(err);
