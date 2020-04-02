@@ -70,7 +70,7 @@
         <% properties.forEach(function(property) { %>
         <div class="card col-md-4">
             <h5 class="badge badge-dark mt-3">Status: <%= property.status %> </h5>
-            <img src="./uploads/<%= property.image %>" alt="property-img" style="width: 100%; height: 300px;">
+            <img src="<%= property.image[0].url %>" alt="property-img" style="width: 100%; height: 300px;">
             <div class="card-body">
                 
                 <h4 class="card-title mt-3">Location: <%= property.location %> </h4>

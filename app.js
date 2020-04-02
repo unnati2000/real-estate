@@ -11,6 +11,9 @@ const passportlocalmongoose = require('passport-local-mongoose');
 const mongoose = require('mongoose');
 var nodemailer = require('nodemailer');
 const sendgridTransport = require('nodemailer-sendgrid-transport');
+const cloudinary = require('cloudinary');
+const fs = require('fs');
+const cloudinaryStorage = require("multer-storage-cloudinary");
 
 // Configure body-parser and static folder
 
@@ -57,12 +60,11 @@ const PropertySchema = new mongoose.Schema({
     location: String,
     address: String,
     price: String,
-    image: String,
+    image: Array,
     bathroom: String,
     balcony: String,
     furnish: String,
     parking: String
-
 });
 const Property = new mongoose.model('Property', PropertySchema);
 
@@ -89,16 +91,18 @@ const transporter = nodemailer.createTransport(sendgridTransport({
 
 // Multer setup
 
-const storage = multer.diskStorage({
-    destination: './public/uploads/',
-    filename: function (req, file, cb) {
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-    }
-})
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.CLOUD_API_KEY,
+    api_secret: process.env.CLOUD_API_SECRET
+});
 
-const upload = multer({
-    storage: storage
-}).single('file');
+const storage = cloudinaryStorage({
+    cloudinary: cloudinary,
+    folder: "propertyImages",
+});
+
+const upload = multer({storage: storage}).array("propertyImage", 4);
 
 // Home route
 
@@ -107,7 +111,7 @@ app.get('/', (req, res, next) => {
 });
 
 // Admin GET and POST route
-
+ 
 app.get('/admin', (req, res, next) => {
     if (req.isAuthenticated()) {
         res.render('admin.ejs');
@@ -116,6 +120,7 @@ app.get('/admin', (req, res, next) => {
     }
 });
 
+// cloudinary done password Lemme try once
 app.post('/admin', upload, (req, res, next) => {
 
     const property = new Property({
@@ -124,7 +129,7 @@ app.post('/admin', upload, (req, res, next) => {
         roomtype: req.body.roomtype,
         address: req.body.address,
         price: req.body.price,
-        image: req.file.filename,
+        image: req.files,
         bathroom: req.body.bathroom,
         balcony: req.body.balcony,
         furnish: req.body.furnish,
@@ -155,10 +160,9 @@ app.get('/project', (req, res, next) => {
 // Properties can be deleted or edited from here 
 
 app.get('/admin-controll', (req, res, next) => {
-
-
     if (req.isAuthenticated()) {
         Property.find({}, function (err, property) {
+            console.log("Test", property)
             res.render("admin-controll.ejs", {
                 properties: property
             });
@@ -168,7 +172,11 @@ app.get('/admin-controll', (req, res, next) => {
     }
 });
 
+
+// delete
+
 app.post('/delete', (req, res, next) => {
+    console.log(req.body.del_id);
     Property.deleteOne({
         _id: req.body.del_id
     }, function (err) {
@@ -181,26 +189,6 @@ app.post('/delete', (req, res, next) => {
     res.redirect('/admin-controll');
 })
 
-// Temporary register route
-
-// app.get('/register', (req,res,next)=>{
-//     res.render('register.ejs');
-// })
-
-// app.post('/register', function(req,res){
-
-//     User.register({username: req.body.username}, req.body.password, function(err,user){
-//         if(err)
-//         {
-//             console.log(err);
-//         } else {
-//             passport.authenticate('local')(req,res, function(){
-//                 res.redirect('/admin')
-//             });
-//         }
-//     });
-    
-// });
 
 // Enquire route
 
@@ -291,6 +279,25 @@ app.post('/find', (req, res, next) => {
 app.get('/find', (req, res, next) => {
     res.render('find.ejs');
 });
+
+
+// ******************************************* EDIT *************************************************************************
+
+app.get('/edit/:id', (req,res,next)=>{
+
+    // Obviously yeh wala undefined hi dikhayega 
+    // Need to get id from control page and pass it here
+    const id = req.param.id;
+    Property.find({_id: id}, function(err, properties){
+        
+        console.log(properties);
+
+        res.render('edit.ejs', {
+            property: properties
+        })
+
+    })
+})
 
 //################################################### ADMIN LOGIN #####################################################3
 

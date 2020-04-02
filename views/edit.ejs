@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Edit Page</title>
     <link rel="stylesheet" href="/admin.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -39,7 +39,7 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#"><i class="fa fa-home" aria-hidden="true"></i> Perfect Properties</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,12 +47,16 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="/project">Project</a>
+                <a class="nav-item nav-link " href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link " href="/project">Prnoject</a>
+                <a class="nav-item nav-link " href="/enquire">Enquire</a>
+                <a class="nav-item nav-link"  href="/admin">Admin</a>
+                <a class="nav-item nav-link"  href="/admin-controll">Admin Controller</a>
 
             </div>
         </div>
     </nav>
+
 
     
     <h1>This is Admin Section</h1>
@@ -61,7 +65,7 @@
     
 
    
-    <form method="POST" action="/admin" enctype="multipart/form-data">
+    <form method="POST" action="/edit" enctype="multipart/form-data">
 
         <h4>Enter roomtype</h4>
         <select class="form-control" name="roomtype">
@@ -70,17 +74,18 @@
             <option>2 BHK</option>
         </select>
         <h4>Enter Status</h4>
-        <input class="form-control" type="text" value="<%= property.status %> " name="status" placeholder="Default input">
+        <input type="hidden"  value="<%= property._id%>" > 
+        <input class="form-control" type="text" name="status" placeholder="Default input" value="<%= property.status %>">
 
 
         <h4>Enter Location</h4>
-        <input class="form-control" type="text" name="location" value="<%= property.location %>" placeholder="<%=property.location %>">
+        <input class="form-control" type="text" name="location" value="<%= property.location %>" placeholder="Enter location">
 
         <h4>Enter Address</h4>
         <input class="form-control" type="text" name="address" value="<%= property.address %>" placeholder="Default input">
 
         <h4>Enter Price</h4>
-        <input class="form-control" type="text" name="price" value="<%= property.price  %> " placeholder="Default input">
+        <input class="form-control" type="text" name="price" value="<%= property.price%>" placeholder="Default input">
 
         <h4 for="exampleFormControlFile1">Select Photo</h4>>
         <br>

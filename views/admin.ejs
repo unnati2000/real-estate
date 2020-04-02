@@ -61,7 +61,7 @@
     
     <h2>Hello Admin! Enter Flat details!</h2>
     
-
+    <!-- Where fo you want to render all the images of a property ? ALL : SINGLE and ONE : PROJECT -->
    
     <form method="POST" action="/admin" enctype="multipart/form-data">
 
@@ -110,7 +110,7 @@
 
 
         <h4>Enter Location</h4>
-        <input class="form-control" type="text" name="location" placeholder="Default input">
+        <input class="form-control" type="text" aria-required="true" name="location" placeholder="Default input">
 
         <h4>Enter Address</h4>
         <input class="form-control" type="text" name="address" placeholder="Default input">
@@ -118,9 +118,10 @@
         <h4>Enter Price</h4>
         <input class="form-control" type="text" name="price" placeholder="Default input">
 
-        <h4 for="exampleFormControlFile1">Select Photo</h4>>
+        <h4 for="exampleFormControlFile1">Enter 4 photos</h4>>
         <br>
-        <input type="file" class="form-control-file" name="file" id="exampleFormControlFile1">
+        <input type="file" class="form-control-file" multiple name="propertyImage" id="exampleFormControlFile1">
+        
         <br>
         
         <button type="submit" class="btn purple-gradient">submit</button>

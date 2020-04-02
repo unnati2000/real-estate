@@ -21,8 +21,12 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="lightbox.css">
 
 </head>
+
+<!-- its ok itna kafi hai ...-->
+<!-- Done..  Just modify the layout as per your liking ok thanks a lot clean up code and push  albright bye -->
 
 <body>
 
@@ -46,7 +50,12 @@
     <div class="card container-fluid" style="width: 25rem;">
         <div class="card-body">
             <h5 class="badge badge-dark">Status: <%= property.status %></h5>
-            <img src="./uploads/<%= property.image %>" alt="property-img"  style="width: 100%; height: 300px;">
+
+            <% property.image.forEach(function(image) { %>
+            <a href="<%= image.url %>" data-lightbox="propertyImage"><img src="<%= image.url %>" style="height: 300px; width: 300px;" alt="property-img"></a>
+
+            <% }) %> 
+            <!-- I'll send the code on deldog wait ok -->
             <h4 class="card-title mt-3">Location: <%= property.location %> </h4>
             <h4 class="card-title">RoomType: <%=property.roomtype %></h4>
             <h4 class="card-text mb-3">Address: <%=property.address %></h4>
@@ -60,10 +69,12 @@
             </div>
             <h3 class="card-text mt-3">Price: ₹<%=property.price %></h3>
 
-            <a class="btn btn-outline-dark mt-3 mb-3" href="/enquire">Show Interest</a>
 
+            <a class="btn btn-outline-dark mt-3 mb-3" href="/enquire">Show Interest</a>
+            <!-- Jquery h ?nahi ..Pura instructions dekha kar main -->
         </div>
     </div>
+    <script src="lightbox-plus-jquery.min.js"></script>
 </body>
 
 </html>

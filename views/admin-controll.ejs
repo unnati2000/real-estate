@@ -58,10 +58,19 @@
                     </span><%=property.address %></p>
                 <h3 class="card-text">Price: ₹ <%=property.price %></h3>
 
-                <form method="POST" class="text-center" action="/delete">
-                    <button type="submit" name="del_id" value=<%= property._id%>
-                        class="btn btn-outline-dark waves-effect">Delete</button>
-                </form>
+                <div class="row mt-3 mb-3">
+                    <form method="POST" class="text-center col-md-6"  action="/delete">
+                        <button type="submit" name="del_id" value=<%= property._id%>
+                            class="btn btn-outline-dark waves-effect">Delete</button>
+                    </form>
+
+                    <form method="GET" class="text-center col-md-6" action="/edit/<%= property._id %>">
+                        <button type="submit" style="padding: 6.5px 20px ;" name="propertyId"  value=<%= property._id%> 
+                            class="btn btn-outline-dark waves-effect">Edit</button>
+                    </form>
+                </div>
+
+                <!-- I'll try later no problem aaram se kabhi bhi abhi nahi bye  -->
 
             </div>
         </div>
