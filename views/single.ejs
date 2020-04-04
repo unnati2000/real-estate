@@ -51,10 +51,12 @@
         <div class="card-body">
             <h5 class="badge badge-dark">Status: <%= property.status %></h5>
 
-            <% property.image.forEach(function(image) { %>
-            <a href="<%= image.url %>" data-lightbox="propertyImage"><img src="<%= image.url %>" style="height: 300px; width: 300px;" alt="property-img"></a>
-
-            <% }) %> 
+            <div class="row">
+                <a style="width: 100%;" href="<%= property.image[0].url %>" data-lightbox="propertyMainImage"><img src="<%= property.image[0].url %>" style="height: 300px;" class="col-md-12" alt=""></a>
+                <% property.image.forEach(function(image) { %>
+                    <div class="col-md-3"><a href="<%= image.url %>" data-lightbox="propertyImage"><img class="image" src="<%= image.url %>" alt="property-img"></a></div>                    
+                <% }) %> 
+            </div>
             <!-- I'll send the code on deldog wait ok -->
             <h4 class="card-title mt-3">Location: <%= property.location %> </h4>
             <h4 class="card-title">RoomType: <%=property.roomtype %></h4>

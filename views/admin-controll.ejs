@@ -21,6 +21,9 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="lightbox.css">
+
 
 </head>
 
@@ -34,7 +37,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-item nav-link " href="/">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link " href="/project">Prnoject</a>
+                <a class="nav-item nav-link " href="/project">Project</a>
                 <a class="nav-item nav-link " href="/enquire">Enquire</a>
                 <a class="nav-item nav-link"  href="/admin">Admin</a>
 
@@ -47,10 +50,16 @@
     <h2 class="text-center mt-2 mb-3">Admin can edit or delete product as per need!</h2>
     <div class="row flat ml-1 container-fluid  justify-content-center">
         <% properties.forEach(function(property) { %>
+   
         <div class="card col-md-4">
             <h5 class="badge badge-dark mt-3">Status: <%= property.status %> </h5>
-            <img src="./uploads/<%= property.image %>" alt="property-img" style="width: 100%; height: 300px;">
             <div class="card-body">
+               <div class="row text-center">
+                
+                <% property.image.forEach(function(image) { %>
+                   <a href="<%= image.url %>" data-lightbox="propertyImage"><img class="image" src="<%= image.url %>" alt="property-img"></a>               
+                <% }) %> 
+            </div>
 
                 <h4 class="card-title mt-3">Location: <%= property.location %> </h4>
                 <h4 class="card-title"><%=property.roomtype %></h4>

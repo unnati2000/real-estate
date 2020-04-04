@@ -135,6 +135,8 @@ app.post('/admin', upload, (req, res, next) => {
         parking: req.body.parking
     });
 
+    console.log(req.files);
+
     property.save();
 
     res.redirect('/project');
