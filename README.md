@@ -17,4 +17,13 @@ A real Estate website is built for brokers who wish to add properties to their w
 * Admin Control
 * Add and delete properties
 * Make equiry
-* After making enquiry, enuiry goes to broker's mail.
+* After making enquiry, the equiry goes to broker's mailbox
+
+![](https://i.imgur.com/1Z0lkok.png)
+![](https://i.imgur.com/jLO2gCL.png)
+![](https://i.imgur.com/qnAbrRa.png)
+![](https://i.imgur.com/6jJmCS4.png)
+![](https://i.imgur.com/rPvJ8wk.png)
+![](https://i.imgur.com/xl3aPTj.png)
+![](https://i.imgur.com/USobvNI.png)
+
